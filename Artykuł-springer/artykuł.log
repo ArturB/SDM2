@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.1)  11 APR 2019 23:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.1)  12 APR 2019 00:24
 entering extended mode
 **./artykuł.tex
 (artykuł.tex
@@ -1184,36 +1184,39 @@ LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10> not available
 pl.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.187 \begin{axiom-pl}
+l.188 \begin{axiom-pl}
                        \label{axiom:godel1}pdfTeX warning (ext4): destination w
 ith the same identifier (name{axiom-pl.2}) has been already used, duplicate ign
 ored
 <to be read again> 
                    \relax 
-l.194 \begin{axiom-pl}
+l.195 \begin{axiom-pl}
                        \label{axiom:godel2}pdfTeX warning (ext4): destination w
 ith the same identifier (name{definition-pl.1}) has been already used, duplicat
 e ignored
 <to be read again> 
                    \relax 
-l.207 \begin{definition-pl}
+l.208 \begin{definition-pl}
                             \label{def:godel-god}pdfTeX warning (ext4): destina
 tion with the same identifier (name{theorem-pl.1}) has been already used, dupli
 cate ignored
 <to be read again> 
                    \relax 
-l.218 \begin{theorem-pl}
+l.219 \begin{theorem-pl}
                          \label{th:godel1} [4]
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 227.
+(Font)              scaled to size 8.27998pt on input line 228.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 227.
- [5]pdfTeX warning (ext4): destination with the same identifier (name{axiom-pl.
+(Font)              scaled to size 8.27998pt on input line 228.
+ [5]
+Underfull \vbox (badness 2158) has occurred while \output is active []
+
+ [6]pdfTeX warning (ext4): destination with the same identifier (name{axiom-pl.
 1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.276 \begin{axiom-pl}
-                       [6] [7] (artykuł.bbl
+l.279 \begin{axiom-pl}
+                       [7] (artykuł.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 37--41
 []\T1/futs/m/n/9 (+20) C. A. An-der-son, ``Some emen-da-tions of G�del's on-to-
 lo-gi-cal proof,'' \T1/futs/m/it/9 (+20) Fa-
@@ -1240,14 +1243,14 @@ Overfull \hbox (0.55087pt too wide) in paragraph at lines 37--41
 ) 
 AED: lastpage setting LastPage
 [8]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 308.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 308.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 311.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 311.
  (artykuł.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 308.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 308.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 311.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 311.
 Package rerunfilecheck Info: File `artykuł.out' has not changed.
 (rerunfilecheck)             Checksum: FCA44D3E93182166630A35B8C3620B47;126.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 308.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 311.
  ) 
 Here is how much of TeX's memory you used:
  21483 strings out of 492946
@@ -1268,7 +1271,7 @@ s/artur/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/adobe/utopia/putb8a.pfb><
 C:/Users/artur/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/adobe/utopia/putr8
 a.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/adobe/utopi
 a/putri8a.pfb>
-Output written on artykuł.pdf (8 pages, 137694 bytes).
+Output written on artykuł.pdf (8 pages, 138781 bytes).
 PDF statistics:
  215 PDF objects out of 1000 (max. 8388607)
  42 named destinations out of 1000 (max. 500000)
