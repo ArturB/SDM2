@@ -36,6 +36,7 @@
 \RequirePackage{wrapfig}
 \RequirePackage{xcolor}
 \RequirePackage{xkeyval}
+
 %--------------------------------------
 % PdfTeX specific configuration
 %--------------------------------------
@@ -100,16 +101,15 @@
 % Initial setup
 %--------------------------------
 \onehalfspacing
-\setcounter{tocdepth}{5}
-\setcounter{secnumdepth}{5}
 
 %--------------------------------
 % Header and footer
 %--------------------------------
 \pagestyle{fancy}
-\fancyhf{}
 \setlength\headheight{15pt}
-\fancyhead[L]{LALA}
+\fancyhf{}
+\fancyheadoffset{0cm} 
+\fancyfoot{}
 \fancyfoot[C]{\thepage}
 
 %--------------------------------
@@ -122,29 +122,46 @@
 %--------------------------------
 \renewcommand{\author}[1]{
 	\renewcommand{\@author}{#1}
-	\fancyhead[L]{#1}
+}
+\newcommand{\subtitle}[1]{
+	\newcommand{\@subtitle}{#1}
 }
 \newcommand{\subject}[1] {
 	\newcommand{\@subject}{#1}
-	\fancyhead[R]{#1}
 }
 
 %--------------------------------
 % Strona tytułowa
 %--------------------------------
-\let \oldtitle \title
-\renewcommand{\title}[1]{
+\let\oldmaketitle\maketitle
+\renewcommand{\maketitle}{
+	\thispagestyle{plain}
 	
-	\oldtitle{ 
-		\textsc{\@subject} \\
-		\HRule{0.5pt} \\
-		\LARGE \textbf{\uppercase{#1}
-		}
-		\HRule{2pt}
-	}
-	\normalsize
+	\begin{center}
+		\LARGE 
+		
+		\vspace*{1cm}
+		\@subject \\ 
+		\HRule{0.5pt} \\ 
+		\textbf{\MakeUppercase\@title} \\ 
+		\large
+		\ifx \@subtitle \undefined
+		\else
+			\vspace*{0.25cm}
+			\@subtitle
+		\fi
+		\HRule{2pt} \\ 
+		\vspace*{0.5cm}
+		\@author \\ 
+		\vspace{0.25cm}
+		\@date
+		
+		\normalsize
+	\end{center}
+
+	
 	\sectionfont{\LARGE\scshape}
+	\setcounter{page}{1}
 }
 
-% THE END OF INPUT
 \endinput
