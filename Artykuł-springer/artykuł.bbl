@@ -1,61 +1,50 @@
 \begin{thebibliography}{1}
 
-\bibitem{anderson1990}
-C.~A. Anderson.
-\newblock Some emendations of {G\"o}del’s ontological proof.
-\newblock {\em Faith and Philosophy}, pages 291--303, 1990.
-\newblock Dostęp zdalny
-  \url{https://appearedtoblogly.files.wordpress.com/2011/05/anderson-anthony-c-22some-emendations-of-gc3b6dels-ontological-proof22.pdf}.
+\bibitem{goedel1995}
+K.~G{\"o}del, ``Texts relating to the ontological proof,'' in {\em Unpublished
+  Essays and Lectures}, pp.~429--437, Oxford University Press, 1995.
+
+\bibitem{sobel2004}
+J.~H. Sobel, {\em Logic and Theism: Arguments for and Against Beliefs in God}.
+\newblock Cambridge University Press, 2004.
+
+\bibitem{goedel2004}
+K.~G{\"o}del, ``Notes in kurt g{\"o}del's hand,'' in {\em Logic and Theism:
+  Arguments for and Against Beliefs in God}, pp.~144--145, Cambridge University
+  Press, 2004.
 
 \bibitem{benzmuller2014}
-C.~Benzmuller and B.~W. Paleo.
-\newblock Automating {G\"o}del’s {O}ntological {P}roof of {G}od’s
-  {E}xistence with {H}igher-order {A}utomated {T}heorem {P}rovers.
-\newblock In {\em European Conference on Artificial Intelligence}. IOS Press,
-  2014.
-\newblock Dostęp zdalny
+C.~Benzmuller and B.~W. Paleo, ``Automating {G\"o}del’s {O}ntological {P}roof
+  of {G}od’s {E}xistence with {H}igher-order {A}utomated {T}heorem
+  {P}rovers,'' in {\em European Conference on Artificial Intelligence}, IOS
+  Press, 2014.
+\newblock Dostęp zdalny (10.04.2019):
   \url{http://page.mi.fu-berlin.de/cbenzmueller/papers/C40.pdf}.
 
 \bibitem{benzmuller2016}
-C.~Benzm{\"u}ller and B.~W. Paleo.
-\newblock The {I}nconsistency in {G\"o}del’s {O}ntological {A}rgument: {A}
-  {S}uccess {S}tory for {AI} in {M}etaphysics.
-\newblock In {\em International Joint Conference on Artificial Intelligence}.
-  AAAI Press, 2016.
-\newblock Dostęp zdalny
+C.~Benzm{\"u}ller and B.~W. Paleo, ``The {I}nconsistency in {G\"o}del’s
+  {O}ntological {A}rgument: {A} {S}uccess {S}tory for {AI} in {M}etaphysics,''
+  in {\em International Joint Conference on Artificial Intelligence}, AAAI
+  Press, 2016.
+\newblock Dostęp zdalny (10.04.2019):
   \url{https://www.ijcai.org/Proceedings/16/Papers/137.pdf}.
 
-\bibitem{goedel1995}
-K.~G{\"o}del.
-\newblock Texts relating to the ontological proof.
-\newblock In {\em Unpublished Essays and Lectures}, pages 429--437. Oxford
-  University Press, 1995.
+\bibitem{sobel1987}
+J.~H. Sobel, ``{G\"o}del’s ontological proof,'' in {\em On Being and Saying:
+  Essays for Richard Catwright}, pp.~241--261, MIT Press, 1987.
 
-\bibitem{goedel2004}
-K.~G{\"o}del.
-\newblock Notes in kurt g{\"o}del's hand.
-\newblock In {\em Logic and Theism: Arguments for and Against Beliefs in God},
-  pages 144--145. Cambridge University Press, 2004.
+\bibitem{anderson1990}
+C.~A. Anderson, ``Some emendations of {G\"o}del’s ontological proof,'' {\em
+  Faith and Philosophy}, pp.~291--303, 1990.
+\newblock Dostęp zdalny (10.04.2019):
+  \url{https://appearedtoblogly.files.wordpress.com/2011/05/anderson-anthony-c-22some-emendations-of-gc3b6dels-ontological-proof22.pdf}.
 
 \bibitem{putnam1985}
-H.~Putnam.
-\newblock {\em Philosophical Papers: Volume 3, Realism and Reason}.
+H.~Putnam, {\em Philosophical Papers: Volume 3, Realism and Reason}.
 \newblock Cambridge University Press, 1985.
 
 \bibitem{stanford2005}
-S.~Sarkar and J.~Pfeifer.
-\newblock {\em The Philosophy of Science: An Encyclopedia}.
+S.~Sarkar and J.~Pfeifer, {\em The Philosophy of Science: An Encyclopedia}.
 \newblock Taylor \& Francis, 2005.
-
-\bibitem{sobel1987}
-J.~H. Sobel.
-\newblock {G\"o}del’s ontological proof.
-\newblock In {\em On Being and Saying: Essays for Richard Catwright}, pages
-  241--261. MIT Press, 1987.
-
-\bibitem{sobel2004}
-J.~H. Sobel.
-\newblock {\em Logic and Theism: Arguments for and Against Beliefs in God}.
-\newblock Cambridge University Press, 2004.
 
 \end{thebibliography}

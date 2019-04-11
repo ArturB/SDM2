@@ -5,7 +5,9 @@
 \RequirePackage{amsfonts}
 \RequirePackage{amsmath}
 
-\documentclass[runningheads]{llncs}
+\documentclass[
+	runningheads
+]{llncs}
 
 %--------------------------------
 % Common packages
@@ -66,7 +68,6 @@
 % Language packages
 %--------------------------------
 \usepackage[
-	english,
 	polish
 ]{babel}
 \usepackage{polski}
@@ -83,7 +84,6 @@
 	urlcolor=black
 }
 
-
 %--------------------------------
 % Twierdzenia i definicje
 %--------------------------------
@@ -97,40 +97,40 @@
 \begin{document}
 
 \title{
-	Dowód ontologiczny G\"odla jako próba stworzenia formalno-matematycznego dowodu istnienia Boga
+	Dowód ontologiczny G\"odla jako próba stworzenia formalnego dowodu istnienia Boga
 }
 
 \titlerunning{Dowód ontologiczny}
 \author{
-	Artur M. Brodzki \\ 
-	\email{artur@brodzki.org}
+	Artur M. Brodzki
 }
 \authorrunning{A. M. Brodzki}
 
 \institute{
 	Instytut Informatyki \\ 
 	Wydział Elektroniki i Technik Informacyjnych \\ 
-	Politechnika Warszawska \\ 
-	ul. Nowowiejska 15/19, 00-665 Warszawa
+	Politechika Warszawska \\ 
+	ul. Nowowiejska 15/19, 00-665 Warszawa \\ 
+	\email{abrodzki@mion.elka.pw.edu.pl}
 }
 %
 \maketitle
 
 \begin{abstract}
-Toczące się od starożytności spory dotyczące możliwości racjonalnego udowodnienia istnienia Boga jak dotąd nie znalazły zadowalającego wszystkich rozwiązania. Z punktu widzenia współczesnej nauki szczególnie interesujące są próby przeprowadzenia dowodu na istnienie Boga za pomocą komputera i programów wspomagających automatyczne dowodzenie twierdzeń. Artykuł omawia jeden ze znanych argumentów na rzecz istnienia Boga, tzw. dowód ontologiczny Kurta G\"odla, który jako jedyny jest sformalizowany w języku nowoczesnej matematyki i poddaje się analizie komputerowej. Omówione są własności dowodu, wyniki jego komputerowej analizy, problemy interpretacyjne, a także możliwe modyfikacje i perspektywy na przyszłość. 
+Toczące się od starożytności spory o możliwość racjonalnego udowodnienia istnienia Boga jak dotąd nie znalazły ostatecznego rozwiązania. Z punktu widzenia współczesnej nauki szczególnie interesujące są próby przeprowadzenia dowodu na istnienie Boga za pomocą komputera i programów wspomagających automatyczne dowodzenie twierdzeń. Artykuł omawia jeden ze znanych argumentów na rzecz istnienia Boga, tzw. dowód ontologiczny Kurta G\"odla, który jest sformalizowany w języku nowoczesnej matematyki i poddaje się analizie komputerowej. Przedstawiono ogólną postać dowodu, wyniki jego zautomatyzowanej weryfikacji, problemy interpretacyjne, a także możliwe modyfikacje i perspektywy na przyszłość. 
 
-\keywords{Bóg, Coq, dowód ontologiczny, G\"odel, Isabelle, metafizyka, LEO-II, pozytywizm, Satallax}
+\keywords{Bóg \and Coq \and dowód ontologiczny \and G\"odel \and Isabelle \and metafizyka \and LEO-II \and pozytywizm \and Satallax}
 \end{abstract}
 
 \section{Wstęp} \label{sec:intro}
-Spory o możliwość racjonalnego udowodnienia istnienia Boga (lub bogów) toczą się co najmniej od czasów starożytnych i do dnia dzisiejszego nie znalazły zadowalającego wszystkich rozwiązania. Nie zanosi się też na to, by udało się je zakończyć w przyszłości. Kontrowersje przynajmniej częściowo wynikają z różnych sposobów rozumienia i definiowania pojęcia Boga w poszczególnych tradycjach filozoficznych. Starożytnym Grekom znane było pojęcie Absolutu, czyli -- mówiąc ogólnie -- bytu podstawowego, z którego wszystko inne się wywodzi. Tak rozumiany Absolut bywa utożsamiany z Bogiem kultury chrześcijańskiej, chociaż zachodzą tutaj istotne różnice -- Absolut jest bowiem bytem całkowicie bezosobowym, natomiast chrześcijański Bóg posiada własną samoświadomość i wchodzi w osobową relację ze światem stworzonym. Obie tradycje starano się łączyć ze sobą w średniowiecznej scholastyce. Z tego okresu pochodzi klasyczny zestaw 5 dowodów na istnienie Boga, tzw. pięć dróg, autorstwa Tomasza z Akwinu, który wpisuje się w tradycję poszukiwań Boga-Stworzyciela poprzez obserwację świata stworzonego (tzw. argumenty kosmologiczne). Rozważano również konstrukcje bardziej abstrakcyjne, próbujące udowodnić istnienie Boga siłą samego rozumu. Najbardziej znanym argumentem tego rodzaju jest tzw. dowód ontologiczny Anzelma z Canterbury. Obie rodziny argumentów wielokrotnie podlegały krytyce. 
+Spory o możliwość racjonalnego udowodnienia istnienia Boga (lub bogów) toczą się co najmniej od czasów starożytnych i do dnia dzisiejszego nie znalazły zadowalającego wszystkich rozwiązania. Nie zanosi się też na to, by udało się je zakończyć w przyszłości. Kontrowersje przynajmniej częściowo wynikają z różnych sposobów rozumienia i definiowania pojęcia Boga w poszczególnych tradycjach filozoficznych. Starożytnym Grekom znane było pojęcie Absolutu, czyli -- mówiąc ogólnie -- bytu podstawowego, z którego wszystko inne się wywodzi. Tak rozumiany Absolut bywa utożsamiany z Bogiem kultury chrześcijańskiej, chociaż zachodzą tutaj istotne różnice -- Absolut jest  bytem całkowicie bezosobowym, natomiast chrześcijański Bóg posiada własną samoświadomość i wchodzi w osobową relację ze światem stworzonym. Obie tradycje starano się łączyć ze sobą w średniowiecznej scholastyce. Z tego okresu pochodzi klasyczny zestaw dowodów na istnienie Boga, tzw. pięć dróg, autorstwa Tomasza z Akwinu. Wpisują się one w tradycję odkrywania Boga-Stworzyciela poprzez obserwację świata stworzonego (tzw. argumenty kosmologiczne). Rozważano również konstrukcje bardziej abstrakcyjne, próbujące udowodnić istnienie Boga siłą samego rozumu. Najbardziej znanym argumentem tego rodzaju jest tzw. dowód ontologiczny Anzelma z Canterbury. Obie rodziny argumentów wielokrotnie podlegały krytyce. 
 
-O ile starożytni i średniowieczni autorzy mieli do dyspozycji jedynie siłę swej własnej intuicji i naturalnej inteligencji, to w XXI wieku możemy już wykorzystać do analizy problemu inteligencję sztuczną. Szczególnie interesujące wydają się próby przeprowadzenia dowodu (a przynajmniej zweryfikowania któregoś z istniejących) na istnienie Boga za pomocą komputerowych systemów automatycznego dowodzenia. Aby to było możliwe, należy wpierw sformalizować samo pojęcie Boga i jego podstawowych własności (np. tradycyjnie przypisywanych Bogu atrybutów wszechmocy czy dobra) w języku nowoczesnej matematyki. Z natury rzeczy najbardziej obiecujące wydają się argumenty z tradycji ,,ontologicznej'', np. wspomniany już wyżej dowód Anzelma. Okazuje się, że zadanie to zostało wykonane jeszcze w erze przed-komputerowej, przez niemieckiego matematyka i logika Kurta G\"odla. Opierając się na dowodzie ontologicznym Anzelma z Canterbury stworzył on zestaw aksjomatów i definicji zapisanych przy użyciu logiki modalnej. Udowodnił również na ich podstawie twierdzenie o istnieniu obiektu, którego cechy pozwalają interpretować go jako monoteistycznego Boga tradycji judeochrześcijańskiej. Jakkolwiek dowód G\"odla wykazuje swoje własne problemy, to jego forma jest na tyle zmatematyzowana, że nadaje się on do komputerowej analizy. Rola i status tego dowodu, jak również jego modyfikacje i możliwość uniknięcia problemów, pozostają nadal problemem otwartym. 
+O ile starożytni i średniowieczni autorzy mieli do dyspozycji jedynie siłę swej własnej intuicji i naturalnej inteligencji, to w XXI wieku możemy już wykorzystać do analizy problemu inteligencję sztuczną. Szczególnie interesujące wydają się próby przeprowadzenia dowodu istnienia Boga (a przynajmniej zweryfikowania któregoś z istniejących) za pomocą komputerowych systemów automatycznego dowodzenia. Aby to było możliwe, należy wpierw sformalizować samo pojęcie Boga i jego podstawowych własności (np. tradycyjnie przypisywanych Bogu atrybutów wszechmocy czy dobra) w języku nowoczesnej matematyki. Najbardziej odpowiednie do tego celu wydają się być argumenty z tradycji ,,ontologicznej'', np. wspomniany już wyżej dowód Anzelma. Okazuje się, że zadanie to zostało wykonane jeszcze w erze przed-komputerowej, przez niemieckiego matematyka i logika Kurta G\"odla. Opierając się na dowodzie ontologicznym Anzelma stworzył on zestaw aksjomatów i definicji zapisanych z użyciem logiki modalnej. Udowodnił na ich podstawie twierdzenie o istnieniu obiektu, którego cechy pozwalają interpretować go jako monoteistycznego Boga tradycji judeochrześcijańskiej. Jakkolwiek dowód G\"odla wykazuje swoje własne problemy, to jego forma jest na tyle zmatematyzowana, że nadaje się on do komputerowej analizy. Rola i interpretacja tego dowodu pozostają nadal kwestią otwartą. 
 
-W następnych rozdziałach opiszę pokrótce kształt obu dowodów ontologicznych: kolejno, Anzelma i G\"odla. Następnie przedstawię próby weryfikacji dowodu za pomocą komputera, a na koniec - możliwe modyfikacje i perspektywy na przyszłość. 
+W następnych rozdziałach opiszę pokrótce kształt obu dowodów ontologicznych: kolejno, Anzelma i G\"odla. Następnie przedstawię próby weryfikacji dowodu G\"odla za pomocą komputera, a na koniec - możliwe modyfikacje i perspektywy na przyszłość. 
 
-\section{Dowód Anzelma}
-Anzelm opublikował swój dowód ontologiczny w 1078 roku, przy okazji wydania jednego se swoich głównych dzieł, \textit{Proslogionu}. Dowód Anzelma nosi wyraźne piętno toczącego się w tym czasie sporu filozoficznego o status ontologiczny obiektów abstrakcyjnych (idei), tzw. sporu o uniwersalia. Częstym i znanym od starożytności zarzutem wobec teizmu jest stwierdzenie, jakoby Bóg był jedynie ideą stworzoną przez ludzi i nie mającą związku ze światem zewnętrznym. Anzelm projektował swój dowód z myślą o odparciu takiego kontrargumentu. 
+\section{Dowód Anzelma} \label{sec:dowod-anzelma}
+Anzelm opublikował swój dowód ontologiczny w 1078 roku, w \textit{Proslogionie}, jednym se swoich głównych dzieł. Dowód Anzelma nosi wyraźne piętno toczącego się w tym czasie sporu filozoficznego o status ontologiczny obiektów abstrakcyjnych (idei), tzw. sporu o uniwersalia. Częstym i znanym od starożytności zarzutem wobec teizmu jest stwierdzenie, jakoby Bóg był jedynie ideą stworzoną przez ludzi i nie mającą związku ze światem zewnętrznym. Anzelm projektował swój dowód z myślą o odparciu takiego kontrargumentu. 
 
 Dowód ontologiczny Anzelma przedstawia się następująco. 
 \begin{axiom-pl} \label{axiom:anzelm1}
@@ -140,23 +140,24 @@ Dowód ontologiczny Anzelma przedstawia się następująco.
 	Byt istniejący obiektywnie (tzn. poza ludzkim umysłem) jest bardziej doskonały, niż identyczny byt, ale istniejący tylko w ludzkim umyśle. 
 \end{axiom-pl}
 \begin{definition-pl} \label{def:anzelm-god}
-	Bóg jest to byt, od którego nie ma (wręcz nie można sobie wyobrazić) żadnego bytu bardziej doskonałego. 
+	Bóg jest to byt najbardziej doskonały. Oznacza to, że niemożliwe jest wręcz \emph{wyobrażenie sobie} jakiegokolwiek bytu bardziej doskonałego. 
 \end{definition-pl}
-\noindent,,Doskonałość'' można tu różnie interpretować, dokładny sposób wartościowania obiektów pod względem tej cechy nie jest jednak istotny z punktu widzenia końcowego dowodu. Okazuje się, że na bazie powyższych założeń daje się już udowodnić twierdzenie:
+\noindent,,Doskonałość'' można intepretować rozmaicie, jednak dokładny sposób wartościowania obiektów pod względem tej cechy nie jest istotny z punktu widzenia dowodu. Okazuje się, że na bazie powyższych założeń daje się już udowodnić odpowiednie twierdzenie:
 \begin{theorem-pl} \label{theorem:anzelm-god}
 	Bóg jest bytem istniejącym realnie, poza ludzkim umysłem. 
 \end{theorem-pl}
 \begin{proof}
-	Dowód twierdzenia odbywa się przez zaprzeczenie. Załóżmy, że Bóg istnieje tylko jako wytwór myśli człowieka. Wynika z tego, że nie jest to idea najdoskonalsza ze wszystkich, można bowiem wyobrazić sobie Boga bardziej doskonałego: takiego, który istnieje w rzeczywistości realnej. Wniosek ten jest jednak sprzeczny z przyjętą definicją \ref{def:anzelm-god}. Uznając założenie początkowe za prawdziwe, otrzymujemy sprzeczność -- a zatem Bóg musi być bytem istniejącym realnie. 
+	Dowód twierdzenia odbywa się przez zaprzeczenie. Załóżmy, że Bóg istnieje tylko jako wytwór myśli człowieka. Wynika z tego, że nie jest to idea najdoskonalsza, można bowiem wyobrazić sobie Boga bardziej doskonałego: takiego, który istnieje w rzeczywistości realnej. Wniosek ten jest jednak sprzeczny z przyjętą definicją \ref{def:anzelm-god}. Uznając założenie początkowe za prawdziwe, otrzymujemy sprzeczność -- a zatem Bóg musi być bytem istniejącym realnie. 
+	\qed
 \end{proof}
-Dowód Anzelma spotkał się z krytyką i to niemal natychmiast po opublikowaniu (Gaunilon, \textit{W obronie głupiego}). Okazuje się bowiem, że wykorzystując powyższą metodę można udowodnić istnienie bardzo wielu bytów, z których część wydaje się dla nas jako filozofów wysoce niepożądana. Gaunilo przytacza przykład idealnej-najdoskonalszej wyspy: zgodnie z rozumowaniem Anzelma, taka wyspa w definicji musi istnieć, ponieważ inaczej nie byłaby najdoskonalsza. Podobnie można dowodzić istnienia nieomal wszystkiego, co stanowi niezaprzeczalną słabość dowodu Anzelma. Został on zresztą uznany za niepoprawny jeszcze w średniowieczu i odrzucony ostatecznie w ,,Sumie teologicznej'' Tomasza z Akwinu. 
+Dowód Anzelma spotkał się z krytyką i to niemal natychmiast po opublikowaniu Okazuje się bowiem, że wykorzystując powyższą metodę można udowodnić istnienie bardzo wielu bytów, z których część wydaje się nam, jako filozofom, wysoce niepożądana. Pierwsze zarzuty zostały opublikowane jeszcze za życia Anzelma, przez mnicha Gaunilona w księdze \textit{W obronie głupiego}. Gaunilo przytacza przykład idealnej, najdoskonalszej wyspy: zgodnie z rozumowaniem Anzelma, taka wyspa z definicji musi istnieć, ponieważ inaczej nie byłaby najdoskonalsza. Podobnie można dowodzić istnienia nieomal wszystkiego, co stanowi niezaprzeczalną słabość dowodu Anzelma. Został on uznany za niepoprawny jeszcze w średniowieczu i odrzucony ostatecznie w \textit{Sumie teologicznej} Tomasza z Akwinu. 
 
-Pomimo problemów, należy docenić zalety dowodu Anzelma. Jest on bardzo nowoczesny w formie: na bazie przyjętych aksjomatów i reguł wnioskowania przeprowadza się dowód zadanego twierdzenia. Taka konstrukcja czyni dowód Anzelma bliskim współczesnym systemom formalnym występującym w logice matematycznej, tzw. systemom Hilberta (ang. \textit{Hilbert-style deduction systems}). Ta cecha sprawia, że daje się on stosunkowo łatwo przełożyć na język nowoczesnej matematyki. Jak wspomniano we wstępie, dokonał tego Kurt G\"odel w 1941 roku, jakkolwiek -- z przyczyn kulturowych, a mianowicie obaw o reakcję środowiska naukowego -- prace na ten temat zostały opublikowane dopiero 9 lat po jego śmierci \cite{goedel1995}. W następnym rozdziale przeanalizujemy tę wspólczesną postać dowodu ontologicznego. 
+Pomimo tych problemów, należy docenić zalety dowodu Anzelma. Jest on bardzo nowoczesny w formie: na bazie przyjętych aksjomatów i reguł wnioskowania przeprowadza się dowód zadanego twierdzenia. Dzięki takiej konstrukcji, dowód Anzelma jest bliski współczesnym systemom formalnym występującym w logice matematycznej, tzw. systemom Hilberta. Ta cecha sprawia, że daje się on stosunkowo łatwo przełożyć na język nowoczesnej matematyki. Jak wspomniano we wstępie, dokonał tego Kurt G\"odel w 1941 roku, jakkolwiek -- z przyczyn kulturowych, a mianowicie obaw o reakcję środowiska naukowego -- prace na ten temat zostały opublikowane dopiero 9 lat po jego śmierci \cite{goedel1995}. W następnym rozdziale przedstawię tę współczesną postać dowodu ontologicznego. 
 
-\section{Dowód G\"odla}
+\section{Dowód G\"odla} \label{sec:dowod-godla}
 Pełna postać dowodu G\"odla jest skomplikowana i nie będę jej tutaj szczegółowo przytaczał. Przedstawię jedynie podstawowe aksjomaty, definicje i twierdzenia pośrednie -- dla zilustrowania faktu, że treści metafizyczne dają się zapisać w języku dzisiejszej logiki. 
 
-Dowód G\"odla wykorzystuje formalizm logiki modalnej, należącej do tzw. logik nieklasycznych i będącej rozszerzeniem klasycznego rachunku zdań o dwa dodatkowe spójniki, tzw. spójniki modalne: 
+Dowód G\"odla wykorzystuje logikę modalną, należącą do tzw. logik nieklasycznych i będącą rozszerzeniem klasycznego rachunku zdań o dwa dodatkowe spójniki, tzw. spójniki modalne: 
 \begin{itemize}
 	\item spójnik możliwości $\diamondsuit p$, czytany jako ,,jest możliwe, że $p$'';
 	\item spójnik konieczności $\Box p$, czytany jako ,,koniecznie $p$''.
@@ -167,21 +168,21 @@ Za pomocą logiki modalnej można wyrażać stwierdzenia charakteryzujące się 
 	\item \emph{Możliwe, że ustawa zostanie uchwalona.}
 	\item \emph{Z pewnością poniesie on tego konsekwencje.}
 \end{itemize}
-Oba spójniki modalne można przekształcać pomiędzy sobą, za pomocą przekształceń analogicznych do praw de Morgana:
+Oba spójniki można przekształcać pomiędzy sobą, za pomocą przekształceń analogicznych do praw de Morgana:
 \begin{align*}
 \neg \diamondsuit Z & \Leftrightarrow \Box \neg Z \\ 
 \neg \Box Z & \Leftrightarrow \diamondsuit \neg Z
 \end{align*}
-G\"odel wykorzystuje logikę modalną do pokazania, że przy dość ogólnym zbiorze założeń wstępnych prawdziwe jest stwierdzenie: ,,Bóg istnieje w sposób konieczny''. 
+G\"odel wykorzystuje logikę modalną do pokazania, że przy dość ogólnym zbiorze założeń wstępnych prawdziwe jest zdanie: ,,Bóg istnieje w sposób konieczny''. 
 
-Przedstawię teraz pokrótce zarys dowodu, przygotowany na podstawie \cite{goedel1995} i \cite{sobel2004}. 
+Przedstawię teraz pokrótce zarys dowodu. Został on opracowany na podstawie \cite{goedel1995} i \cite{sobel2004}. 
 
 \setcounter{axiom-pl}{0}
 \setcounter{definition-pl}{0}
 \setcounter{theorem-pl}{0}
 
 \begin{assumption-pl}
-	Istniejące obiekty $x$ dają się opisywać poprzez predykaty: $\varphi(x), \psi(x), \xi(x)$. Predykaty dają się opisywać jako ,,pozytywne'' $P(\varphi)$ lub ,,negatywne'' $\neg P(\psi)$. 
+	Obiekty matematyczne dają się opisywać za pomocą predykatów: $\varphi(x)$, $\psi(x)$, itd. Każdy predykat daje się sklasyfikować jako ,,pozytywny'' $P(\varphi)$ lub ,,negatywny'' $\neg P(\psi)$. 
 \end{assumption-pl}
 \begin{axiom-pl} \label{axiom:godel1}
 	Brak dobra jest zły i vice versa: 
@@ -191,7 +192,7 @@ Przedstawię teraz pokrótce zarys dowodu, przygotowany na podstawie \cite{goede
 	\end{align*}
 \end{axiom-pl}
 \begin{axiom-pl} \label{axiom:godel2}
-	Z dobra nie może wynikac zło: 
+	Z dobra nie może wynikać zło: 
 	\begin{equation*}
 	\left( P(\varphi) \wedge \Box \forall x: \varphi(x) \Rightarrow \psi(x) \right) \Rightarrow P(\psi)
 	\end{equation*}
@@ -202,18 +203,18 @@ Przedstawię teraz pokrótce zarys dowodu, przygotowany na podstawie \cite{goede
 	P(\varphi) \Rightarrow \Box P(\varphi)
 	\end{equation*}
 \end{axiom-pl}
-\noindent Powyższe aksjomaty oddają intuicje dotyczące cech dobrych (pozytywnych) i złych (negatywnych), przyjmowane zazwyczaj mniej lub bardziej świadomie przez większość ludzi. Ich dość ogólny charakter decyduje o sile dowodu ontologicznego, jednak również o jego słabościach.
+\noindent Powyższe aksjomaty oddają intuicje dotyczące cech dobrych (pozytywnych) i złych (negatywnych), przyjmowane zazwyczaj mniej lub bardziej świadomie przez większość ludzi. Ich dość ogólny charakter decyduje o sile dowodu ontologicznego, jednak również o jego słabościach, co omawiam dokładniej w rozdziałach \ref{sec:komputerowa-analiza} i \ref{sec:modyfikacje}. 
 \begin{definition-pl} \label{def:godel-god}
 	Bóg to obiekt posiadający każdą cechę pozytywną: 
 	\begin{equation*}
 	G(x) \Leftrightarrow \forall \varphi \left( P(\varphi) \Leftrightarrow \varphi(x) \right)
 	\end{equation*}
 \end{definition-pl}
-\noindent Mogłoby wydawać się oczywiste, że zachodzi $P(G)$, jednak -- zaskakująco -- nie wynika to z aksjomatów \ref{axiom:godel1} -- \ref{axiom:godel3}. Jest tak dlatego, że $G$ definiuje się poprzez kwantyfikator po predykatach, a zatem $G$ jest predykatem rzędu wyższego o 1 od pozytywnych cech, które z sobie zawiera. Wprowadzamy zatem dodatkowy aksjomat:
+\noindent Mogłoby wydawać się oczywiste, że zachodzi $P(G)$, jednak -- zaskakująco -- nie wynika to z aksjomatów \ref{axiom:godel1} -- \ref{axiom:godel3}. Jest tak dlatego, że $G$ definiuje się poprzez kwantyfikator po predykatach, a zatem $G$ jest predykatem rzędu wyższego o 1 od pozytywnych cech, które w sobie zawiera. Wprowadzamy zatem dodatkowy aksjomat:
 \begin{axiom-pl} \label{axiom:godel4}
 	P(G)
 \end{axiom-pl}
-\noindent Z tak zdefiniowanych założeń możemy już wyprowadzić kilka interesujących wyników. Przede wszystkim okazuje się, że dla dla każdego pozytywnego predykatu $\varphi$ możemy znaleźć przynajmniej jeden obiekt, który posiada ten predykat. Mówimy, że każda pozytywna właściwość jest ,,potencjalnie egzemplifikowana'' (ang. \emph{possibly exemplified}):
+\noindent Z tak zdefiniowanych założeń można już wyprowadzić kilka interesujących wyników. Przede wszystkim okazuje się, że dla dla każdego pozytywnego predykatu $\varphi$ daje się znaleźć przynajmniej jeden obiekt, który posiada ten predykat. Mówimy, że każda pozytywna właściwość jest ,,potencjalnie egzemplifikowana'' (ang. \emph{possibly exemplified}):
 \begin{theorem-pl} \label{th:godel1}
 	$P(\varphi) \Rightarrow \diamondsuit \exists x: \varphi(x)$
 \end{theorem-pl}
@@ -221,21 +222,21 @@ Przedstawię teraz pokrótce zarys dowodu, przygotowany na podstawie \cite{goede
 \begin{theorem-pl} \label{th:godel2}
 	$\diamondsuit \exists x: G(x)$
 \end{theorem-pl}
-\noindent Zależy nam jednak na pokazaniu, że istnienie Boga jest faktem koniecznym. G\"odel wprowadza kolejne definicje:
+\noindent Zależy nam jednak na pokazaniu, że istnienie Boga jest faktem koniecznym. Wprowadzamy kolejne definicje:
 \begin{definition-pl} \label{def:godel-essence}
-	Predykat $\varphi$ jest \emph{esencją} obiektu $x$, gdy wynikają z niego wszystkie pozostałe predykaty zachodzące dla $x$\footnote{Oryginalna wersja przedstawiona przez G\"odla w \cite{goedel2004} nie zawiera pierwszej części koniunkcji $\varphi(x)$. Tak zdefiniowana esencja czyni jednak zbiór aksjomatów \ref{axiom:godel1} - \ref{axiom:godel5} niespójnym; ten dość zaskakujący wniosek został potwierdzony analizą komputerową \cite{benzmuller2014}. Dodanie warunku $\varphi(x)$ nie zmienia zasadniczo semantyki dowodu, a pozwala zachować spójność aksjomatów, dlatego w tym miejscu podajemy już tylko i wyłącznie poprawną wersję.}:
+	Predykat $\varphi$ jest \emph{esencją} obiektu $x$, gdy wynikają z niego wszystkie pozostałe predykaty prawdziwe dla $x$\footnote{Oryginalna wersja przedstawiona przez G\"odla w \cite{goedel2004} nie zawiera pierwszej części koniunkcji $\varphi(x)$. Tak zdefiniowana esencja czyni jednak zbiór aksjomatów \ref{axiom:godel1} - \ref{axiom:godel5} niespójnym; ten dość zaskakujący wniosek został potwierdzony analizą komputerową \cite{benzmuller2014}. Dodanie warunku $\varphi(x)$ nie zmienia zasadniczo semantyki dowodu, a pozwala zachować spójność aksjomatów, dlatego w niniejszym opracowaniu podaję już tylko i wyłącznie tę drugą wersję.}:
 	\begin{align*}
 	& \varphi\ \emph{ess}\ x \Leftrightarrow \varphi(x) \wedge \forall \psi: \\ 
 	& \psi(x) \Rightarrow \Box \forall y: \left( \varphi(y) \Rightarrow \psi(y) \right)
 	\end{align*}
 \end{definition-pl}
-\noindent Czytelnik mający nieco praktyki w logice formalnej może się już domyślać zachodzenia następującego faktu:
+\noindent Czytelnik mający nieco wprawy może się już domyślać zachodzenia następującego twierdzenia:
 \begin{theorem-pl} \label{th:godel3}
 	$G(x) \Rightarrow G\ \emph{ess}\ x$
 \end{theorem-pl}
 \noindent Pozostaje sformalizować kluczową części dowodu Anzelma, czyli założenie, że obiekt istniejący realnie jest bardziej doskonały od identycznego obiektu, ale istniejącego tylko w ludzkim umyśle: 
 \begin{definition-pl} \label{def:godel-existence}
-	Obiekt $x$ istnieje w sposób konieczny $E(x)$, jeśli dla każdej esencji $\psi$ obiektu $x$ istnieje co najmniej jeden obiekt posiadający cechę $\psi$:
+	Obiekt $x$ istnieje w sposób konieczny $E(x)$, jeśli dla każdej esencji $\psi$ \emph{ess} $x$ istnieje obiekt posiadający cechę $\psi$:
 	\begin{equation*}
 	E(x) \Leftrightarrow \forall \psi: \left( \psi\ \emph{ess}\ x \Rightarrow\Box\ \exists x: \psi(x) \right)
 	\end{equation*}
@@ -250,28 +251,28 @@ Przedstawię teraz pokrótce zarys dowodu, przygotowany na podstawie \cite{goede
 \end{theorem-pl}
 \noindent Udowodniliśmy, że istnienie Boga jest faktem koniecznym.
 
-\section{Komputerowa analiza dowodu}
-Dowód G\"odla korzysta z nieklasycznej logiki modalnej, i to logiki modalnej wyższego rzędu -- wykorzystuje predykaty drugiego rzędu i kwantyfikatory po predykatach (aksjomat \ref{axiom:godel1}, \ref{axiom:godel3}, \ref{axiom:godel4}). Logiki wyższego rzędu są trudne do komputerowej analizy, ponieważ problemy wyrażone w takich logikach są w ogólności nieobliczalne w sensie Turinga; dodatkową trudność stanowi reprezentacja spójników modalnych $\diamondsuit$ i $\Box$. Niemniej okazuje się, że logiki HOML (ang. \textit{Higher-Order Modal Logic}) dają się sprowadzić do zwykłej, niemodalnej logiki wyższego rzędu poprzez ominięcie spójnika $\Box$ i kilka innych operacji semantycznych \cite{benzmuller2014}. Tak uproszczona postać dowodu okazuje się być matematycznie równoważna, a co więcej - nadaje się już do zautomatyzowanej analizy. 
+\section{Komputerowa analiza dowodu} \label{sec:komputerowa-analiza}
+Dowód G\"odla korzysta z nieklasycznej logiki modalnej, i to logiki modalnej wyższego rzędu -- wykorzystuje predykaty drugiego rzędu i kwantyfikatory po predykatach. Logiki wyższego rzędu są trudne do komputerowej analizy, ponieważ problemy wyrażone w takich logikach są w ogólności nieobliczalne w sensie Turinga; dodatkową trudność stanowi reprezentacja spójników modalnych $\diamondsuit$ i $\Box$. Niemniej okazuje się, że logiki HOML (ang. \textit{Higher-Order Modal Logic}) dają się sprowadzić do zwykłej, niemodalnej logiki wyższego rzędu poprzez ominięcie spójnika $\Box$ i kilka innych operacji \cite{benzmuller2014}. Tak uproszczona postać dowodu okazuje się być matematycznie równoważna, a co więcej - nadaje się już do zautomatyzowanej analizy. 
 
-Komputerowa weryfikacja dowodu G\"odla została przeprowadzona przez niemieckich filozofów-logików Christopha Benzm\"ullera i Bruno Paleo \cite{benzmuller2014}, \cite{benzmuller2016} przy pomocy znanych programów służących do komputerowego wspomagania dowodzenia twierdzeń: Isabelle, LEO-II, Satallax i Coq. Wnioski okazały się być następujące:
+Komputerowa weryfikacja dowodu G\"odla została przeprowadzona przez niemieckich logików Christopha Benzm\"ullera i Bruno Paleo \cite{benzmuller2014}, \cite{benzmuller2016} przy pomocy znanych programów służących do komputerowego wspomagania dowodzenia twierdzeń: Isabelle, LEO-II, Satallax i Coq. Wnioski okazały się być następujące:
 \begin{itemize}
-	\item Zbiór aksjomatów \ref{axiom:godel1} -- \ref{axiom:godel4} jest niesprzeczny. 
-	\item Twierdzenie \ref{th:godel-god} jest dowodliwe na bazie przyjętych założeń\footnote{Wymienionym programom nie udało się jednak wytworzyć kompletnego dowodu w formie jawnej, a jedynie stwierdzić, że jest to możliwe. }, tym samym dowód G\"odla jest -- formalnie rzecz biorąc -- poprawny.
-	\item Istnieje tylko jeden Bóg spełniający przyjęte założenia -- na  gruncie zadanych aksjomatów można więc dowodzić prawdziwości monoteizmu. 
+	\item Zbiór aksjomatów \ref{axiom:godel1} -- \ref{axiom:godel5} jest niesprzeczny. 
+	\item Twierdzenie \ref{th:godel-god} jest dowodliwe na bazie przyjętych założeń\footnote{Wymienionym programom nie udało się jednak wytworzyć kompletnego dowodu w formie jawnej, a jedynie stwierdzić, że jest to możliwe.}, tym samym dowód G\"odla jest -- formalnie rzecz biorąc -- poprawny.
+	\item Istnieje tylko jeden Bóg spełniający aksjomaty \ref{axiom:godel1} -- \ref{axiom:godel5}; na bazie przyjętych założeń można zatem udowodnić prawdziwość monoteizmu. 
 \end{itemize}
-Dowód G\"odla cierpi jednak na swoje własne problemy. Przede wszystkim, oryginalny dowód ontologiczny Anzelma projektowany był z myślą o odrzuceniu zarzutu o fikcyjność Boga; w dowodzie G\"odla Bóg predykat istnienia (definicja \ref{def:godel-existence}) można równie dobrze interpretować jako istnienie idei matematycznej i nie jest już tak jasne, czy jest to samo ,,istnienie'' co istnienie obiektów materialnych. Do dowodu G\"odla można też odnieść -- choć w nieco bardziej wyrafinowanej formie -- zarzut Gaunilona. Występuje tu zjawisko tzw. modalnego kolapsu: wszystko, co jest możliwe, jest również konieczne:
+Dowód G\"odla nie jest jednak wolny od własnych problemów. Przede wszystkim, oryginalny dowód ontologiczny Anzelma projektowany był z myślą o odrzuceniu zarzutu Boga istniejącego jedynie w ludzkim umyśle; w dowodzie G\"odla predykat istnienia (definicja \ref{def:godel-existence}) można interpretować jedynie jako istnienie idei matematycznej i nie jest już tak jasne, czy jest to samo ,,istnienie'' co istnienie obiektów materialnych. Do dowodu G\"odla można też odnieść -- choć w nieco bardziej wyrafinowanej formie -- tradycyjną krytykę Gaunilona. Aksjomaty \ref{axiom:godel1} -- \ref{axiom:godel5} implikują bowiem zjawisko tzw. modalnego kolapsu: wszystko, co jest możliwe, jest również konieczne:
 \begin{align*}
 \Diamond \psi \Rightarrow \Box \psi
 \end{align*}
-Istnienie tego problemu było podnoszone już w latach 80-tych \cite{sobel1987}. Wspomniane już badania Benzm\"ullera i Paleo potwierdziły jego istnienie za pomocą analizy komputerowej \cite{benzmuller2014}. Występowanie modalnego kolapsu pozostaje najpoważniejszym zarzutem podnoszonym wobec dowodu G\"odla. 
+Istnienie tego problemu było podnoszone już w latach 80-tych \cite{sobel1987}. Wspomniane badania Benzm\"ullera i Paleo potwierdziły jego istnienie za pomocą analizy komputerowej \cite{benzmuller2014}. Występowanie modalnego kolapsu pozostaje najpoważniejszym zarzutem podnoszonym wobec dowodu G\"odla. 
 
 \section{Modyfikacje} \label{sec:modyfikacje}
 
 \setcounter{axiom-pl}{0}
 
-Podejmowano próby modyfikacji dowodu G\"odla, mające na celu głównie uniknięcie zjawiska modalnego kolapsu. Najbardziej znaną propozycją tego typu jest propozycja Andersona \cite{anderson1990}, która osiąga ten cel poprzez osłabienie aksjomatu \ref{axiom:godel1}. 
+Podejmowano próby modyfikacji dowodu G\"odla, zwykle mające na celu uniknięcie zjawiska modalnego kolapsu. Najbardziej znaną propozycją tego typu jest propozycja Andersona \cite{anderson1990}, która osiąga ten cel poprzez osłabienie aksjomatu \ref{axiom:godel1}. 
 
-Według postaci dowodu przedstawionej przez G\"odla, ,,pozytywność'' i ,,negatywność'' są swoimi wzajemnymi zaprzeczeniami i niemożliwe są predykaty klasyfikowane jako ,,neutralne''; wynika to wprost z treści aksjomatu \ref{axiom:godel1}:
+Według aksjomatyki przedstawionej przez G\"odla, ,,pozytywność'' i ,,negatywność'' są swoimi wzajemnymi zaprzeczeniami i niemożliwe są predykaty klasyfikowane jako ,,neutralne'':
 \begin{axiom-pl}
 	Brak dobra jest zły i vice versa. 
 	\begin{align*}
@@ -279,7 +280,7 @@ Według postaci dowodu przedstawionej przez G\"odla, ,,pozytywność'' i ,,negat
 	P(\varphi) & \Leftrightarrow \neg P( \neg \varphi )
 	\end{align*}
 \end{axiom-pl}
-Brak cech neutralnych jest wyraźnie sprzeczny z intuicją, co stanowi dość istotną słabość aksjomatu \ref{axiom:godel1}. Aby to zmienić, Anderson zamienia równoważność na implikację w prawo:
+Brak cech neutralnych jest wyraźnie sprzeczny z intuicją, co stanowi dość istotną słabość aksjomatu \ref{axiom:godel1}. Aby tego uniknąć, Anderson zamienia równoważność na implikację w prawo:
 
 \vspace*{0.2cm}
 \noindent\textbf{Aksjomat 1*} \hspace*{0.1cm}
@@ -289,18 +290,18 @@ Brak cech neutralnych jest wyraźnie sprzeczny z intuicją, co stanowi dość is
 	P( \neg \varphi ) \Rightarrow \neg P(\varphi)
 \end{align*}
 
-Tak zmodyfikowany zestaw aksjomatów pozwala na uniknięcie zjawiska modalnego kolapsu. Co więcej okazuje się, że traci moc również argument Gaunilona. Na bazie nowego zestawu aksjomatów daje się udowodnić jedynie istnienie obiektu posiadającego \emph{wszystkie możliwe} pozytywne dechy (Boga), tymczasem idealna wyspa posiada jedynie cechy dobre dla wysp i jej istnienie nie daje się udowodnić na bazie nowego systemu. Dowód Andersona posiada jednak swoje własne słabości; analiza komputerowa sugeruje, że pominięta w tej wersji implikacja w lewo może być konieczna do udowodnienia twierdzenia \ref{th:godel3}; nie jest jasne, czy ominięcie implikacji w lewo wystarcza do udowodnienia ostatecznego wniosku. Poszukiwania takiej postaci dowodu, która pozwoliłaby uniknąć powyższych problemów, pozostają nadal problemem otwartym. 
+Tak zmodyfikowany zestaw aksjomatów nie prowadzi już do zjawiska modalnego kolapsu. Co więcej okazuje się, że traci moc również krytyka Gaunilona. Na bazie nowego zestawu aksjomatów daje się udowodnić jedynie istnienie obiektu posiadającego \emph{wszystkie możliwe} pozytywne dechy (Boga), tymczasem idealna wyspa posiada jedynie cechy dobre dla wysp i jej istnienie nie daje się wyprowadzić w nowej aksjomatyce. Dowód Andersona ma jednak swoje własne słabości; analiza komputerowa \cite{benzmuller2016} sugeruje, że pominięta w tej wersji implikacja w lewo może być konieczna do udowodnienia twierdzenia \ref{th:godel3}; nie jest jasne, czy do udowodnienia ostatecznego wniosku wystarcza jedynie implikacja w prawo. Również w mocy pozostają wątpliwości związane z interpretacją Boga jedynie jako idei matematycznej. Poszukiwania takiej postaci dowodu, która pozwoliłaby uniknąć powyższych problemów, wciąż trwają i stanowią aktywny obszar badań. 
 
 \section{Podsumowanie} \label{sec:summary}
-Dla czytelnika wychowanego w duchu scjentystycznego empiryzmu, dowód G\"odla może wydawać się naiwny, a nawet budzić uśmiech politowania. Związek Boga rozważanego jako koncepcja matematyczna z materialną, obserwowalną rzeczywistością może wydawać się co najmniej niejasny. Zdaniem autora należy jednak z przychylnością spojrzeć na tego rodzaju konstrukcje. Wbrew oczekiwaniom logicznych pozytywistów, nie da się uciec od wszelkiej metafizyki; każdy system formalny zawiera w sobie zbiór podstawowych założeń, których nie dowodzi się w ramach tego systemu, a raczej przyjmuje jako punkt wyjścia dla dalszych rozważań. Przykładając pozytywistyczne kryterium prawdy do samego pozytywizmu okazuje się, że w ramach tego systemu nie da się dowieść prawdziwości jego samego. \cite{putnam1985}, \cite{stanford2005}. Jego podstawowe założenia: logiczna struktura świata i empiryczna weryfikowalność wszelkiej wiedzy -- mają bowiem czysto metafizyczny, nieweryfikowalny charakter. Jako taki, scjentystyczny empiryzm nie stanowi odpowiedzi na pytanie o zasadę świata, a raczej jest odsunięciem tego pytania o jeden krok dalej. Poznanie rozumowe stanowi zatem niezbędne uzupełnienie tego, co postrzegalne zmysłowo; więcej, rozum jawi się w tym kontekście jako samodzielny zmysł, pozwalający nam obserwować rzeczywistość innego rodzaju, ale nie mniej prawdziwą niż ta materialna. W takim świetle epistemologiczny, platoński realizm, zakładający realne istnienie niematerialnych idei, wydaje się znacznie bardziej uzasadniony, niż dzisiejszemu czytelnikowi mogłoby się zdawać na pierwszy rzut oka. 
+Dla czytelnika wychowanego w duchu scjentystycznego empiryzmu, dowód G\"odla może wydawać się naiwny, a nawet budzić uśmiech politowania. Bóg rozważany jako koncepcja matematyczna wydaje się mieć co najmniej niejasny związek z materialną, obserwowalną rzeczywistością. Moim zdaniem należy jednak z przychylnością spojrzeć na tego rodzaju konstrukcje. Wbrew oczekiwaniom logicznych pozytywistów, nie da się uciec od wszelkiej metafizyki; przykładając pozytywistyczne kryterium prawdy do samego pozytywizmu okazuje się, że pozytywizm jest sam w sobie niedowodliwy \cite{putnam1985} \cite{stanford2005}. Jego podstawowe założenia: logiczna struktura świata i empiryczna weryfikowalność wszelkiej wiedzy mają bowiem czysto metafizyczny, nieweryfikowalny charakter. Scjentystyczny empiryzm nie może zatem stanowić odpowiedzi na pytanie o zasadę świata, a raczej jest odsunięciem tego pytania o jeden krok dalej. Poznanie rozumowe jest więc niezbędnym uzupełnieniem tego, co postrzegalne zmysłowo. Co więcej, rozum jawi się w tym kontekście jako samodzielny zmysł, pozwalający nam obserwować rzeczywistość co prawda innego rodzaju, ale nie mniej prawdziwą niż ta materialna. W takim świetle klasyczny platoński idealizm, zakładający realne istnienie niematerialnych idei, wydaje się znacznie bardziej uzasadniony, niż współczesnemu czytelnikowi mogłoby się zdawać na pierwszy rzut oka. 
 
-Spór o istnienie Boga i możliwość udowodnienia tego faktu toczy się w filozofii od czasów starożytnych. Nowoczesnym dowodem tego rodzaju jest dowód ontologiczny G\"odla, oparty na klasycznym dowodzie ontologicznym Anzelma, i sformalizowany w języku współczesnej logiki. Dzięki wykorzystaniu nowoczesnego oprogramowania, istnieje możliwość analizy tego rodzaju dowodów w sposób zautomatyzowany. Pozwala to rozwiązać niektóre znane problemy, jednocześnie stawia przez nami nowe wyzwania i pytania, na które wciąż nie znamy odpowiedzi. 
+Spór o istnienie Boga toczy się w filozofii od czasów starożytnych. Nowoczesnym dowodem tego rodzaju jest dowód ontologiczny G\"odla, oparty na klasycznym dowodzie ontologicznym Anzelma, i sformalizowany w języku współczesnej logiki. Dzięki wykorzystaniu nowoczesnego oprogramowania istnieje możliwość analizy tego rodzaju dowodów w sposób zautomatyzowany. Pozwala to rozwiązać niektóre wcześniejsze problemy, jednocześnie stawia przez nami nowe wyzwania i pytania, na które wciąż nie znamy odpowiedzi. 
 
 
 %--------------------------------
 % Literarura
 %--------------------------------
-\bibliographystyle{abbrv}
+\bibliographystyle{ieeetr}
 \bibliography{literatura}
 
 
