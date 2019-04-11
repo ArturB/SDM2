@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.1)  11 APR 2019 13:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.1)  11 APR 2019 13:31
 entering extended mode
 **./artykuł.tex
 (artykuł.tex
@@ -1174,41 +1174,41 @@ LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <9> not available
 
 {C:/Users/artur/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 143.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 136.
 
 [2] [3]pdfTeX warning (ext4): destination with the same identifier (name{axiom-
 pl.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.193 \begin{axiom-pl}
+l.186 \begin{axiom-pl}
                        \label{axiom:godel1}pdfTeX warning (ext4): destination w
 ith the same identifier (name{axiom-pl.2}) has been already used, duplicate ign
 ored
 <to be read again> 
                    \relax 
-l.200 \begin{axiom-pl}
+l.193 \begin{axiom-pl}
                        \label{axiom:godel2}pdfTeX warning (ext4): destination w
 ith the same identifier (name{definition-pl.1}) has been already used, duplicat
 e ignored
 <to be read again> 
                    \relax 
-l.213 \begin{definition-pl}
+l.206 \begin{definition-pl}
                             \label{def:godel-god}pdfTeX warning (ext4): destina
 tion with the same identifier (name{theorem-pl.1}) has been already used, dupli
 cate ignored
 <to be read again> 
                    \relax 
-l.224 \begin{theorem-pl}
+l.217 \begin{theorem-pl}
                          \label{th:godel1} [4]
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 233.
+(Font)              scaled to size 8.27998pt on input line 226.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 233.
+(Font)              scaled to size 8.27998pt on input line 226.
  [5]pdfTeX warning (ext4): destination with the same identifier (name{axiom-pl.
 1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.282 \begin{axiom-pl}
+l.275 \begin{axiom-pl}
                        [6] [7] (artykuł.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 4--9
 []\T1/futs/m/n/9 (+20) C. A. An-der-son.  Some emen-da-tions of G�del's on-to-l
@@ -1236,21 +1236,21 @@ Overfull \hbox (0.55087pt too wide) in paragraph at lines 4--9
 ) 
 AED: lastpage setting LastPage
 [8]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 314.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 314.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 307.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 307.
  (artykuł.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 314.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 314.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 307.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 307.
 Package rerunfilecheck Info: File `artykuł.out' has not changed.
 (rerunfilecheck)             Checksum: 72BAA9F1FBB3B8AE3F042AE6906460E4;139.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 314.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 307.
  ) 
 Here is how much of TeX's memory you used:
- 21489 strings out of 492946
- 367095 string characters out of 3126267
+ 21493 strings out of 492946
+ 367132 string characters out of 3126267
  567098 words of memory out of 3000000
  24815 multiletter control sequences out of 15000+200000
- 621167 words of font info for 288 fonts, out of 3000000 for 9000
+ 621437 words of font info for 291 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,10n,63p,1689b,417s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\artur\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\
@@ -1265,7 +1265,7 @@ b><C:/Users/artur/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/adobe/utopia/pu
 tb8a.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/adobe/ut
 opia/putr8a.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/a
 dobe/utopia/putri8a.pfb>
-Output written on artykuł.pdf (8 pages, 141245 bytes).
+Output written on artykuł.pdf (8 pages, 141313 bytes).
 PDF statistics:
  226 PDF objects out of 1000 (max. 8388607)
  42 named destinations out of 1000 (max. 500000)

@@ -119,7 +119,7 @@
 \begin{abstract}
 Toczące się od starożytności spory dotyczące możliwości racjonalnego udowodnienia istnienia Boga jak dotąd nie znalazły zadowalającego wszystkich rozwiązania. Z punktu widzenia współczesnej nauki szczególnie interesujące są próby przeprowadzenia dowodu na istnienie Boga za pomocą komputera i programów wspomagających automatyczne dowodzenie twierdzeń. Artykuł omawia jeden ze znanych argumentów na rzecz istnienia Boga, tzw. dowód ontologiczny Kurta G\"odla, który jako jedyny jest sformalizowany w języku nowoczesnej matematyki i poddaje się analizie komputerowej. Omówione są własności dowodu, wyniki jego komputerowej analizy, problemy interpretacyjne, a także możliwe modyfikacje i perspektywy na przyszłość. 
 
-\keywords{Bóg, Coq, dowód ontologiczny, G\"odel, Isabelle, Satallax}
+\keywords{Bóg, Coq, dowód ontologiczny, G\"odel, Isabelle, metafizyka, LEO-II, pozytywizm, Satallax}
 \end{abstract}
 
 \section{Wstęp} \label{sec:intro}
@@ -130,14 +130,7 @@ O ile starożytni i średniowieczni autorzy mieli do dyspozycji jedynie siłę s
 W następnych rozdziałach opiszę pokrótce kształt obu dowodów ontologicznych: kolejno, Anzelma i G\"odla. Następnie przedstawię próby weryfikacji dowodu za pomocą komputera, a na koniec - możliwe modyfikacje i perspektywy na przyszłość. 
 
 \section{Dowód Anzelma}
-Anzelm opublikował swój dowód ontologiczny w 1078 roku, przy okazji wydania jednego se swoich głównych dzieł, \textit{Proslogionu}. Dowód Anzelma nosi wyraźne piętno toczącego się w tym czasie sporu filozoficznego o status ontologiczny obiektów abstrakcyjnych (idei), tzw. sporu o uniwersalia. 
-%Spór ten można streścić w następujący sposób:
-%\begin{itemize}
-%	\item Człowiek bezpośrednio doświadcza tego, co jest obserwowalne za pomocą zmysłów. Przykładami obiektów bezpośrednio obserwowalnych zmysłowo są np. przedmioty codziennego użytku, zwierzęta czy inni ludzie. 
-%	\item Przedmiotom zmysłowo postrzegalnym odpowiadają abstrakcyjne kategorie-idee. Dla przykładu, materialnie istniejącemu krzesłu odpowiada ogólna idea krzesła, która pozwala nam zaklasyfikować dany obiekt jako krzesło. Poszczególne krzesła mogą w szczegółach różnić się od siebie, ale wszystkie mieszczą się w pewnej wspólnej formie i jako krzesła posiadają określony zestaw wspólnych cech. Takie idee-formy nazywane są uniwersaliami (powszechnikami). 
-%	\item Pytanie: czy powszechniki istnieją ,,realnie'', w taki sam sposób jak obiekty materialne? Czy powszechniki istnieją poza ludzkim umysłem? A może są one kategoriami tworzonymi przez ludzi, a może wręcz jedynie dźwiękami języka?
-%\end{itemize}
-Częstym i znanym od starożytności zarzutem wobec teizmu jest stwierdzenie, jakoby Bóg był jedynie ideą stworzoną przez ludzi i nie mającą związku ze światem zewnętrznym. Anzelm projektował swój dowód z myślą o odparciu takiego kontrargumentu. 
+Anzelm opublikował swój dowód ontologiczny w 1078 roku, przy okazji wydania jednego se swoich głównych dzieł, \textit{Proslogionu}. Dowód Anzelma nosi wyraźne piętno toczącego się w tym czasie sporu filozoficznego o status ontologiczny obiektów abstrakcyjnych (idei), tzw. sporu o uniwersalia. Częstym i znanym od starożytności zarzutem wobec teizmu jest stwierdzenie, jakoby Bóg był jedynie ideą stworzoną przez ludzi i nie mającą związku ze światem zewnętrznym. Anzelm projektował swój dowód z myślą o odparciu takiego kontrargumentu. 
 
 Dowód ontologiczny Anzelma przedstawia się następująco. 
 \begin{axiom-pl} \label{axiom:anzelm1}
