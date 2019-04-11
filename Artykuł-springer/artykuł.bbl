@@ -7,36 +7,45 @@ C.~A. Anderson.
 \newblock Dostęp zdalny
   \url{https://appearedtoblogly.files.wordpress.com/2011/05/anderson-anthony-c-22some-emendations-of-gc3b6dels-ontological-proof22.pdf}.
 
-\bibitem{anderson1996}
-C.~A. Anderson.
-\newblock {G\"o}del’s ontological proof revisited.
-\newblock {\em Faith and Philosophy}, pages 167--172, 1996.
-\newblock Dostęp zdalny
-  \url{https://projecteuclid.org/download/pdf_1/euclid.lnl/1235417020}.
-
 \bibitem{benzmuller2014}
 C.~Benzmuller and B.~W. Paleo.
-\newblock Automating {G\"o}del’s ontological proof of god’s existence with
-  higherorder automated theorem provers.
+\newblock Automating {G\"o}del’s {O}ntological {P}roof of {G}od’s
+  {E}xistence with {H}igher-order {A}utomated {T}heorem {P}rovers.
 \newblock In {\em European Conference on Artificial Intelligence}. IOS Press,
   2014.
 \newblock Dostęp zdalny
-  \url{https://projecteuclid.org/download/pdf_1/euclid.lnl/1235417020}.
+  \url{http://page.mi.fu-berlin.de/cbenzmueller/papers/C40.pdf}.
 
 \bibitem{benzmuller2016}
 C.~Benzm{\"u}ller and B.~W. Paleo.
-\newblock The inconsistency in {G\"o}del’s ontological argument: A success
-  story for ai in metaphysics.
+\newblock The {I}nconsistency in {G\"o}del’s {O}ntological {A}rgument: {A}
+  {S}uccess {S}tory for {AI} in {M}etaphysics.
 \newblock In {\em International Joint Conference on Artificial Intelligence}.
   AAAI Press, 2016.
 \newblock Dostęp zdalny
-  \url{https://projecteuclid.org/download/pdf_1/euclid.lnl/1235417020}.
+  \url{https://www.ijcai.org/Proceedings/16/Papers/137.pdf}.
 
 \bibitem{goedel1995}
 K.~G{\"o}del.
 \newblock Texts relating to the ontological proof.
 \newblock In {\em Unpublished Essays and Lectures}, pages 429--437. Oxford
   University Press, 1995.
+
+\bibitem{goedel2004}
+K.~G{\"o}del.
+\newblock Notes in kurt g{\"o}del's hand.
+\newblock In {\em Logic and Theism: Arguments for and Against Beliefs in God},
+  pages 144--145. Cambridge University Press, 2004.
+
+\bibitem{putnam1985}
+H.~Putnam.
+\newblock {\em Philosophical Papers: Volume 3, Realism and Reason}.
+\newblock Cambridge University Press, 1985.
+
+\bibitem{stanford2005}
+S.~Sarkar and J.~Pfeifer.
+\newblock {\em The Philosophy of Science: An Encyclopedia}.
+\newblock Taylor \& Francis, 2005.
 
 \bibitem{sobel1987}
 J.~H. Sobel.
@@ -46,7 +55,7 @@ J.~H. Sobel.
 
 \bibitem{sobel2004}
 J.~H. Sobel.
-\newblock {\em Logic and Theism: Arguments for and Against Beliefs in God.}
+\newblock {\em Logic and Theism: Arguments for and Against Beliefs in God}.
 \newblock Cambridge University Press, 2004.
 
 \end{thebibliography}
